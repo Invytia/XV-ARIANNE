@@ -35,32 +35,7 @@
             scroll-behavior: smooth;
         }
 
-        /* --- EFECTOS DE DESTELLOS Y BRILLOS (NUEVO) --- */
-        .sparkles-container {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            pointer-events: none;
-            z-index: 100;
-            overflow: hidden;
-        }
-
-        .sparkle {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background-color: var(--gold-editorial);
-            border-radius: 50%;
-            box-shadow: 0 0 10px 3px var(--gold-glow), 0 0 20px 5px var(--pink-main);
-            opacity: 0;
-            animation: glitter 4s infinite ease-in-out;
-        }
-
-        @keyframes glitter {
-            0% { opacity: 0; transform: scale(0.5) translateY(0); }
-            50% { opacity: 1; transform: scale(1.5) translateY(-20px); }
-            100% { opacity: 0; transform: scale(0.5) translateY(-40px); }
-        }
-
+        /* --- EFECTOS DE BRILLOS EN TEXTO --- */
         .glow-effect {
             animation: pulse-glow 2s infinite alternate;
         }
@@ -251,7 +226,6 @@
         .bg-black .title-script { color: var(--gold-editorial); }
         .bg-black .body-serif { color: #ffffff; }
 
-        .line-divider { width: 1px; height: 60px; background-color: var(--gold-editorial); margin: 35px auto; box-shadow: 0 0 10px var(--gold-glow); }
         .line-horizontal { width: 80px; height: 2px; background-color: var(--gold-editorial); margin: 40px auto; box-shadow: 0 0 10px var(--gold-glow); }
 
         /* Información Textual */
@@ -390,9 +364,6 @@
 </head>
 <body>
 
-    <!-- CONTENEDOR DE DESTELLOS Y BRILLOS -->
-    <div class="sparkles-container" id="sparkles"></div>
-
     <!-- AUDIO OCULTO -->
     <audio id="bg-music" src="assets/song.mp3" loop></audio>
 
@@ -427,11 +398,16 @@
         <section class="section-block bg-pearl">
             <div class="anim-element anim-fade-up delay-1 tag-line glow-effect">Mis XV Años</div>
             <h1 class="anim-element anim-zoom delay-2 title-script glow-effect">Arianne</h1>
-            <div class="anim-element anim-fade-up delay-3 line-divider"></div>
         </section>
 
         <!-- Fecha, Cuenta Regresiva y Calendario -->
         <section class="section-block bg-pink">
+            
+            <!-- MENSAJE ESPECIAL -->
+            <p class="anim-element anim-fade-up delay-1 body-serif" style="text-align: center; margin-bottom: 60px; font-size: 26px;">
+                "Un evento tan especial se vive mejor al lado de gente especial como tú. <br>¡Nos encantaría que nos acompañaras a celebrar!"
+            </p>
+
             <div class="anim-element anim-fade-up delay-1 info-title">Celebra conmigo este día tan especial</div>
             <div class="anim-element anim-fade-up delay-2 info-data glow-effect" style="font-size: 40px; font-weight: 600; color: var(--pink-main);">19 de Diciembre</div>
             <div class="anim-element anim-fade-up delay-3 info-data" style="font-size: 28px; color: var(--gold-editorial); letter-spacing: 3px;">2026</div>
@@ -474,8 +450,49 @@
             <div class="anim-element anim-fade-up delay-4 info-data" style="font-size: 28px;">Victoria Saraid Rosas Meza</div>
         </section>
 
-        <!-- Ubicaciones -->
+        <!-- Itinerario -->
         <section class="section-block bg-pink">
+            <div class="anim-element anim-fade-up delay-1 info-title">Itinerario</div>
+            <div class="anim-element anim-fade-up delay-2 info-data glow-effect" style="font-size: 38px; color: var(--pink-main);">Programa del Día</div>
+
+            <div style="width: 100%; max-width: 400px; margin-top: 40px; display: flex; flex-direction: column; gap: 30px;">
+                <!-- Misa -->
+                <div class="anim-element anim-fade-up delay-2" style="display: flex; align-items: center; text-align: left; background: #fff; padding: 20px; border-radius: 12px; box-shadow: 0 10px 30px rgba(220,169,178,0.2);">
+                    <div style="background: var(--pink-subtle); padding: 15px; border-radius: 50%; margin-right: 20px; display: flex; justify-content: center; align-items: center; color: var(--pink-main);">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3L1 11.4l1.2 1.6L4 11.6V21h16v-9.4l1.8 1.4 1.2-1.6L12 3zm0 2.5l7 5.4v8.1h-4v-5h-6v5H5v-8.1l7-5.4zM11 6h2v3h3v2h-3v3h-2v-3H8V9h3V6z"/></svg>
+                    </div>
+                    <div>
+                        <div style="font-family: 'Cinzel', serif; font-size: 16px; color: var(--gold-editorial); font-weight: 600;">1:00 p.m. - 2:00 p.m.</div>
+                        <div style="font-family: 'Montserrat', sans-serif; font-size: 16px; font-weight: 500; color: var(--text-dark); margin-top: 5px;">Misa de Acción de Gracias</div>
+                    </div>
+                </div>
+
+                <!-- Acceso al Salón -->
+                <div class="anim-element anim-fade-up delay-3" style="display: flex; align-items: center; text-align: left; background: #fff; padding: 20px; border-radius: 12px; box-shadow: 0 10px 30px rgba(220,169,178,0.2);">
+                    <div style="background: var(--pink-subtle); padding: 15px; border-radius: 50%; margin-right: 20px; display: flex; justify-content: center; align-items: center; color: var(--pink-main);">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M21 5V3H3v2l8 9v5H6v2h12v-2h-5v-5l8-9zM7.43 7L5.66 5h12.69l-1.78 2H7.43z"/></svg>
+                    </div>
+                    <div>
+                        <div style="font-family: 'Cinzel', serif; font-size: 16px; color: var(--gold-editorial); font-weight: 600;">2:30 p.m.</div>
+                        <div style="font-family: 'Montserrat', sans-serif; font-size: 16px; font-weight: 500; color: var(--text-dark); margin-top: 5px;">Acceso al Salón</div>
+                    </div>
+                </div>
+
+                <!-- Entrada y Fiesta -->
+                <div class="anim-element anim-fade-up delay-4" style="display: flex; align-items: center; text-align: left; background: #fff; padding: 20px; border-radius: 12px; box-shadow: 0 10px 30px rgba(220,169,178,0.2);">
+                    <div style="background: var(--pink-subtle); padding: 15px; border-radius: 50%; margin-right: 20px; display: flex; justify-content: center; align-items: center; color: var(--pink-main);">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1.5l3.09 6.3 6.91 1-5 4.87 1.18 6.88L12 17.25l-6.18 3.3L7 13.67 2 8.8l6.91-1L12 1.5z"/></svg>
+                    </div>
+                    <div>
+                        <div style="font-family: 'Cinzel', serif; font-size: 16px; color: var(--gold-editorial); font-weight: 600;">3:00 p.m.</div>
+                        <div style="font-family: 'Montserrat', sans-serif; font-size: 16px; font-weight: 500; color: var(--text-dark); margin-top: 5px;">Entrada de la Quinceañera e inicio de la fiesta</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ubicaciones -->
+        <section class="section-block bg-pearl">
             <div class="anim-element anim-fade-up delay-1 info-title">Ceremonia Religiosa</div>
             <div class="anim-element anim-fade-up delay-2 info-data">Santa Rita de Casia</div>
             <div class="anim-element anim-fade-up delay-3 tag-line" style="font-size: 16px; margin: 15px 0; color: var(--pink-main);">1:00 p.m.</div>
@@ -503,9 +520,8 @@
             <div class="anim-element anim-fade-up delay-2 info-data" style="font-family: 'Cinzel', serif; font-size: 40px; margin: 25px 0; letter-spacing: 5px; color: #fff;">
                 FORMAL
             </div>
-            <div class="anim-element anim-fade-up delay-3 line-divider" style="background-color: var(--gold-editorial); height: 40px;"></div>
-            <p class="anim-element anim-fade-up delay-4 body-serif" style="color: #fff; font-size: 22px;">
-                Favor de reservar el color <strong>palo de rosa</strong> exclusivamente para la quinceañera.
+            <p class="anim-element anim-fade-up delay-4 body-serif" style="color: #fff; font-size: 22px; margin-top: 20px;">
+                Favor de reservar el color <strong>Rosa</strong> exclusivamente para la quinceañera.
             </p>
         </section>
 
@@ -599,7 +615,6 @@
             
             <button onclick="sendRSVP()" class="anim-element anim-fade-up delay-4 btn-solid" style="margin-bottom: 70px;">Confirmar por WhatsApp</button>
 
-            <div class="anim-element anim-zoom line-divider"></div>
 
             <!-- Muro de Deseos -->
             <div class="anim-element anim-fade-up delay-1 info-title">Mensajes</div>
@@ -617,29 +632,6 @@
     </main>
 
     <script>
-        // --- EFECTOS DE DESTELLOS DINÁMICOS ---
-        function createSparkles() {
-            const container = document.getElementById('sparkles');
-            const sparkleCount = 40; // Cantidad de destellos
-            
-            for (let i = 0; i < sparkleCount; i++) {
-                let sparkle = document.createElement('div');
-                sparkle.classList.add('sparkle');
-                
-                // Posición y duración aleatoria
-                let size = Math.random() * 4 + 2; 
-                sparkle.style.width = size + 'px';
-                sparkle.style.height = size + 'px';
-                sparkle.style.left = Math.random() * 100 + 'vw';
-                sparkle.style.top = Math.random() * 100 + 'vh';
-                sparkle.style.animationDuration = (Math.random() * 3 + 2) + 's';
-                sparkle.style.animationDelay = Math.random() * 2 + 's';
-                
-                container.appendChild(sparkle);
-            }
-        }
-        createSparkles();
-
         // --- CUENTA REGRESIVA ---
         const eventDate = new Date("Dec 19, 2026 13:00:00").getTime();
         
